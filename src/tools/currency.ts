@@ -5,7 +5,7 @@
 import type { ToolModule, ToolDefinition, ToolHandler } from "../hub/types.js";
 
 /** Frankfurter API 基础 URL */
-const API_BASE = "https://api.frankfurter.dev";
+const API_BASE = "https://api.frankfurter.dev/v1";
 
 /** 工具定义 */
 const definitions: ToolDefinition[] = [
