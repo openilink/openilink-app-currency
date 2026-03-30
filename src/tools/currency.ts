@@ -14,9 +14,13 @@ const definitions: ToolDefinition[] = [
     description: "汇率换算，将指定金额从一种货币转换为另一种货币",
     command: "convert_currency",
     parameters: {
-      amount: { type: "number", description: "金额", required: true },
-      from: { type: "string", description: "源货币代码（如 USD）", required: true },
-      to: { type: "string", description: "目标货币代码（如 CNY）", required: true },
+      type: "object",
+      properties: {
+        amount: { type: "number", description: "金额" },
+        from: { type: "string", description: "源货币代码（如 USD）" },
+        to: { type: "string", description: "目标货币代码（如 CNY）" },
+      },
+      required: ["amount", "from", "to"],
     },
   },
   {
@@ -24,8 +28,12 @@ const definitions: ToolDefinition[] = [
     description: "查询指定基准货币的汇率，支持筛选特定目标货币",
     command: "get_exchange_rate",
     parameters: {
-      base: { type: "string", description: "基准货币代码，默认 USD" },
-      symbols: { type: "string", description: "目标货币代码，逗号分隔（如 CNY,EUR,JPY）" },
+      type: "object",
+      properties: {
+        base: { type: "string", description: "基准货币代码，默认 USD" },
+        symbols: { type: "string", description: "目标货币代码，逗号分隔（如 CNY,EUR,JPY）" },
+      },
+      required: [],
     },
   },
   {
