@@ -1,17 +1,13 @@
-version: "3.8"
-
 services:
-  currency:
+  currency-app:
     build: .
     container_name: openilink-app-currency
     restart: unless-stopped
-    ports:
-      - "8092:8092"
     environment:
-      - HUB_URL=${HUB_URL}
-      - BASE_URL=${BASE_URL}
-      - DB_PATH=/data/currency.db
-      - PORT=8092
+      PORT: "${PORT:-8092}"
+      HUB_URL: "${HUB_URL}"
+      BASE_URL: "${BASE_URL}"
+      DB_PATH: "/data/currency.db"
     volumes:
       - currency-data:/data
 
